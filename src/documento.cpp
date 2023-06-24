@@ -23,3 +23,7 @@ void Documento::carregarDocumento() {
 const std::string& Documento::obterNomeArquivo() {
     return nomeArquivo;
 }
+
+bool Documento::palavraExiste(const std::string& palavra) {
+    return mapaPalavras.count(palavra) > 0;
+}
