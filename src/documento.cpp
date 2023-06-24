@@ -27,3 +27,7 @@ const std::string& Documento::obterNomeArquivo() {
 bool Documento::palavraExiste(const std::string& palavra) {
     return mapaPalavras.count(palavra) > 0;
 }
+
+int Documento::obterFrequenciaPalavra(const std::string& palavra) {
+    return mapaPalavras[palavra];
+}
