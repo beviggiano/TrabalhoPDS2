@@ -44,4 +44,11 @@ void MotorBusca::buscar(std::string& consulta){
     }
 }
 
-    
+bool MotorBusca::todasPalavrasExistem(Documento& doc, const std::vector<std::string>& palavras) {
+    for (const auto& palavra : palavras) {
+        if (!doc.palavraExiste(palavra)) {
+            return false;
+        }
+    }
+    return true;
+}    
