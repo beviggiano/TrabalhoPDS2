@@ -25,5 +25,23 @@ void MotorBusca::buscar(std::string& consulta){
             resultados.push_back(std::make_pair(doc.obterNomeArquivo(), frequenciaTotal));
         }
     }
-    
+
+    std::sort(resultados.begin(), resultados.end(),
+              [](const std::pair<std::string, int>& a, const std::pair<std::string, int>& b) {
+                  if (a.second != b.second)
+                      return a.second > b.second;
+                  else
+                      return a.first < b.first;
+              });
+
+    if (resultados.empty()) {
+        std::cout << "Infelizmente, não há nenhum arquivo com os parâmetros que você busca." << std::endl;
+    }
+    else {
+        std::cout << "Aqui estão os arquivos relacionados a sua busca:" << std::endl;
+        for (const auto& resultado : resultados)
+            std::cout << resultado.first << std::endl;
+    }
 }
+
+    
